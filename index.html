@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>IFT2255 - A24</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('.demoTitle').click(function() {
+					$(this).next('.demoSection').slideToggle(600);
+				});
+
+				$('.slideButton').click(function() {
+					if($(".demoSection").first().is(':hidden')) {
+						$(".demoSection").slideDown(600);
+					} else {
+					$(".demoSection").slideUp(600);
+					}		
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<main class="container">
+			<button class="slideButton">Slide Toggle</button>
+
+			<header class="header">
+				<div class="leftHeader">
+					<a href="https://www.umontreal.ca"><p class="headerText">Université de Montréal</p></a> 
+					<a href="https://admission.umontreal.ca/programmes/baccalaureat-en-informatique/"><p class="headerText">Baccalauréat en Informatique</p></a>
+				</div>
+				<div class="rightHeader">
+					<a href="https://admission.umontreal.ca/cours-et-horaires/cours/ift-2255/"><p class="headerText">Génie Logiciel</p></a>
+					<a href="https://studium.umontreal.ca/course/view.php?id=295591"><p class="headerText">IFT2255 - A24</p></a>
+				</div>
+			</header>
+
+			<section class="topSection">
+				<img src="assets/engrenage.png" alt="Engrenage" class="topLeft" height="150px" />
+				<div class="topCenter">
+					<h1>Résumé - Génie Logiciel</h1>
+					<p class="description">Un résumé pour le cours de Génie Logiciel. Retrouvez des questions et réponses sur des concepts fondamentaux, les patrons de conception, les diagrammes UML, et les méthodologies agiles pour réussir vos études.</p>
+				</div>
+				<div class="topRight"><p class="description asideText">Cette page couvre surtout la matière vue dans les démos.</p></div>
+			</section>
+
+			<section class="content">
+
+				<!-- Format de base -->
+				<!-- <div class="capsule" id="">
+					<h3 class="titleContent"></h3>
+					<p class="description"></p>
+				</div> -->
+
+				<h2 class="demoTitle contenuTitle">Quelques aides-mémoires</h2>
+				<div class="demoSection demo" style="display: none;">
+					<div class="capsule" id="flux">
+						<h3 class="titleContent">Flux de travail</h3>
+						<img src="assets/flux.webp" alt="flux">
+					</div>
+
+					<div class="capsule" id="fluxSuite">
+						<h3 class="titleContent">Flux de travail, suite ...</h3>
+						<ul>
+						<li><strong>Exigences :</strong>
+							<ul>
+								<li>But : déterminer ce dont le client a besoin.</li>
+								<li>Spécifications doivent être précises, complètes et correctes.</li>
+								<li>Document de spécifications comme artefact.</li>
+							</ul>
+						</li>
+						<li><strong>Analyse :</strong>
+							<ul>
+								<li>But : analyser et affiner les exigences.</li>
+							</ul>
+						</li>
+						<li><strong>Conception :</strong>
+							<ul>
+								<li>But : produire une solution implémentable.</li>
+								<li>Comprendre le domaine d'application.</li>
+								<li>Construire un modèle d'affaires.</li>
+								<li>Produire la documentation du design.</li>
+								<li>Conception architecturale (haut niveau) et détaillée (implémentable).</li>
+							</ul>
+						</li>
+						<li><strong>Implémentation :</strong>
+							<ul>
+								<li>But : traduire le design dans le langage de programmation choisi.</li>
+							</ul>
+						</li>
+						<li><strong>Test :</strong>
+							<ul>
+								<li>But : évaluer les artéfacts produits par les autres workflows.</li>
+							</ul>
+						</li>
+						<li><strong>Déploiement :</strong>
+							<ul>
+								<li>But : rendre le logiciel disponible et livrer des artéfacts au client.</li>
+								<li>Préparation des environnements et installation du logiciel.</li>
+								<li>Livraison de tous les artéfacts de tous les workflows au client.</li>
+							</ul>
+						</li>
+					</ul>
+					</div> 
+
+					<div class="capsule" id="ecb">
+						<h3 class="titleContent">Le Modèle ECB</h3>
+						<img src="assets/ecb.webp" alt="ecb" width="600px">
+						<p class="description">Le modèle ECB est une architecture logicielle qui se compose de trois types de classes :</p>
+						<ul>
+							<li><strong>Classe Entité :</strong> Représente les données structurées et la logique métier. Elle conserve l'état des objets et interagit avec les autres classes pour manipuler ces données.</li>
+							<li><strong>Classe Contrôle :</strong> Gère le flux de données entre les classes entité et interface. Elle effectue le traitement des entrées, orchestre les opérations et maintient la logique du système.</li>
+							<li><strong>Classe Interface :</strong> Fournit les moyens d'interaction entre l'utilisateur et le système. Elle reçoit les entrées de l'utilisateur et affiche les résultats, tout en interagissant avec la classe de contrôle pour traiter ces données. Elles contiennent les attributs et opérations.</li>
+						</ul>
+						<p class="description" style="color: red;">Les classes entités sont les barres vers le bas, les classes interface ont le petit T sur le côté et les classes contrôles ont une flèche. Les classes de contrôles sont associées à n'importe quelle autre classes. Les classes interfaces ne communiquent qu'avec les classes de contrôle, pas celles entité.</p>
+						<p class="description">Ce modèle favorise la séparation des préoccupations, améliorant ainsi la maintenabilité et la compréhension du code. En assurant que les classes entité ne communiquent pas directement avec les classes d'interface, le modèle ECB facilite la gestion des changements et des tests.</p>
+						<p class="description">Les interactions entre les classes se font de la manière suivante :</p>
+						<ul>
+							<li>La <strong>classe Interface</strong> communique avec la <strong>classe Contrôle</strong> pour transmettre les entrées de l'utilisateur et recevoir des mises à jour.</li>
+							<li>La <strong>classe Contrôle</strong> interagit avec la <strong>classe Entité</strong> pour accéder aux données, effectuer des traitements et retourner les résultats à la classe Interface.</li>
+						</ul>
+						<p class="description">Ce modèle favorise la séparation des préoccupations, améliorant ainsi la maintenabilité et la compréhension du code. En assurant que les classes entité ne communiquent pas directement avec les classes d'interface, le modèle ECB facilite la gestion des changements et des tests.</p>
+					</div>
+
+					<div class="capsule" id="comparaisonModelesAnalyse">
+						<h3 class="titleContent">Comparaison des Modèles d'Analyse</h3>
+						<p class="description">
+							Cette capsule présente une comparaison entre trois modèles d'analyse : fonctionnel, dynamique, et d'objet.
+						</p>
+
+						<h4>1. Modèle Fonctionnel</h4>
+						<p class="description">
+							Ce modèle décrit les fonctions du système et leurs interactions avec l'environnement externe. 
+							Il se concentre sur les services fournis par le système et comment les utilisateurs interagissent avec ces services.
+						</p>
+						<strong>Utilité :</strong>
+						<ul>
+							<li>Permet de clarifier les exigences fonctionnelles.</li>
+							<li>Facilite la compréhension des interactions avec l'environnement.</li>
+							<li>Aide à identifier les cas d'utilisation.</li>
+						</ul>
+
+						<h4>2. Modèle Dynamique</h4>
+						<p class="description">
+							Ce modèle décrit le comportement du système, le séquencement d'actions et les états du système au fil du temps. 
+							Il est essentiel pour comprendre comment le système réagit à des entrées et à des événements.
+						</p>
+						<strong>Utilité :</strong>
+						<ul>
+							<li>Permet d'identifier les transitions d'état.</li>
+							<li>Aide à visualiser le flux des processus métier.</li>
+							<li>Facilite la modélisation des scénarios de fonctionnement.</li>
+						</ul>
+
+						<h4>3. Modèle d'Objet</h4>
+						<p class="description">
+							Ce modèle décrit les concepts et entités encapsulant le comportement et les propriétés du système. 
+							Il se concentre sur les objets, leurs attributs et leurs relations, facilitant la compréhension de la structure du système.
+						</p>
+						<strong>Utilité :</strong>
+						<ul>
+							<li>Permet de définir les entités principales du système.</li>
+							<li>Aide à organiser le code de manière modulaire.</li>
+							<li>Facilite la réutilisation des composants du système.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="scenariosIncludeExtend">
+						<h3 class="titleContent">Scénarios Include et Extend dans les Diagrammes de Cas d'Utilisation</h3>
+						<p class="description">
+							Dans les diagrammes de cas d'utilisation, les scénarios **Include** et **Extend** sont utilisés pour modéliser la relation entre différents cas d'utilisation. 
+							Ces deux concepts permettent de mieux structurer et comprendre les fonctionnalités d'un système.
+						</p>
+
+						<h4>Scénario Include</h4>
+						<p class="description">
+							Le scénario **Include** représente une relation obligatoire où un cas d'utilisation principal intègre un autre cas d'utilisation. 
+							Cela signifie que le cas d'utilisation inclus est toujours exécuté lorsque le cas d'utilisation principal est exécuté. 
+							Il est utilisé pour factoriser des fonctionnalités communes qui sont partagées entre plusieurs cas d'utilisation.
+						</p>
+						<strong>Exemple :</strong>
+						<ul>
+							<li>Un cas d'utilisation "Passer une Commande" peut inclure un cas d'utilisation "Vérifier le Stock".</li>
+						</ul>
+
+						<h4>Scénario Extend</h4>
+						<p class="description">
+							Le scénario **Extend** représente une relation conditionnelle où un cas d'utilisation principal peut être étendu par un autre cas d'utilisation. 
+							Cela signifie que le cas d'utilisation étendu est exécuté uniquement si certaines conditions sont remplies. 
+							Il est utilisé pour ajouter des fonctionnalités optionnelles à un cas d'utilisation sans modifier le cas d'utilisation principal.
+						</p>
+						<strong>Exemple :</strong>
+						<ul>
+							<li>Un cas d'utilisation "Passer une Commande" peut être étendu par un cas d'utilisation "Appliquer un Coupon" si un coupon est présent.</li>
+						</ul>
+
+						<h4>Résumé des Différences</h4>
+						<table>
+							<thead>
+								<tr>
+									<th>Aspect</th>
+									<th>Include</th>
+									<th>Extend</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Relation</td>
+									<td>Obligatoire</td>
+									<td>Conditionnelle</td>
+								</tr>
+								<tr>
+									<td>Utilisation</td>
+									<td>Pour partager des fonctionnalités</td>
+									<td>Pour ajouter des fonctionnalités optionnelles</td>
+								</tr>
+								<tr>
+									<td>Exécution</td>
+									<td>Toujours exécuté</td>
+									<td>Exécuté si condition remplie</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="capsule" id="pompeEssence">
+						<h3 class="titleContent">Pompe d’essence</h3>
+						<p class="description">
+							Les pompes à essence d’une station-service offrent plusieurs options aux automobilistes :
+							<ul>
+								<li>Chaque pompe permet de choisir entre trois types d’essence.</li>
+								<li>L’utilisateur peut effectuer son paiement directement à la pompe avec une carte de crédit, ou en espèces en passant par le caissier.</li>
+								<li>Un utilisateur qui effectue son paiement directement à la pompe peut optionnellement utiliser une carte fidélité pour accumuler des points bonis avec son achat d’essence.</li>
+								<li>L’utilisateur peut choisir de faire le plein ou entrer une limite sur le montant d’argent. Dans ce cas, la pompe arrête automatiquement de verser l’essence lorsque ce montant est atteint.</li>
+								<li>Un utilisateur qui effectue son paiement à la pompe reçoit aussi un reçu imprimé.</li>
+								<li>Toutes les pompes sont reliées à un système central de gestion de l’inventaire qui calcule le nombre de litres d’essences restants dans les réservoirs et ce pour chaque type d’essence vendue par le commerce. Cet inventaire est mis à jour automatiquement après chaque vente.</li>
+								<li>Chaque vente est aussi enregistrée dans le système de gestion à des fins de vérification.</li>
+							</ul>
+						</p>
+
+						<h4>Cas d’utilisation</h4>
+						<p class="description"><strong>Acheter de l’essence avec paiement à la pompe par carte de crédit</strong></p>
+						<p class="description"><strong>Acteurs:</strong> Utilisateur (automobiliste), compagnie de crédit, système central d’inventaire</p>
+						<p class="description"><strong>Préconditions:</strong> La pompe est active et disponible.</p>
+						<p class="description"><strong>Postconditions:</strong> La pompe est disponible pour le prochain client.</p>
+
+						<h4>Scénario principal</h4>
+						<ol>
+							<li>L’utilisateur glisse sa carte de crédit dans le lecteur.</li>
+							<li>Le système confirme avec la compagnie de crédit que la carte de crédit est valide et préapprouve un achat de 50$.</li>
+							<li>Le système demande à l’utilisateur s’il détient une carte fidélité.</li>
+							<li>L’utilisateur appuie sur le bouton “Non”</li>
+							<li>Le système demande à l’utilisateur de choisir le type d’essence désiré.</li>
+							<li>L’utilisateur appuie sur le bouton correspondant au type d’essence désiré.</li>
+							<li>Le système demande à l’utilisateur s’il désire faire le plein.</li>
+							<li>L’utilisateur appuie sur le bouton “Oui”.</li>
+							<li>Le système demande à l’utilisateur de prendre le pistolet et de commencer à faire le plein.</li>
+							<li>L’utilisateur prend le pistolet et commence à faire le plein.</li>
+							<li>Durant le remplissage, le système affiche le montant total de la vente et le nombre de litres d’essences écoulés.</li>
+							<li>L’utilisateur replace le pistolet.</li>
+							<li>Le système conclut la vente avec la compagnie de carte de crédit.</li>
+							<li>Le système communique les détails de la vente au système central.</li>
+							<li>Le système imprime un reçu et remet les quantités affichées à zéro.</li>
+						</ol>
+
+						<h4>Scénarios alternatifs</h4>
+						<h5>4a. L’utilisateur appuie sur le bouton “Oui”</h5>
+						<ol>
+							<li>Le système demande à l’utilisateur de glisser sa carte fidélité.</li>
+							<li>L’utilisateur glisse sa carte fidélité dans le lecteur.</li>
+							<li>Retour à l’étape 5 du cas principal.</li>
+						</ol>
+
+						<h5>8a. L’utilisateur appuie sur le bouton “Non”</h5>
+						<ol>
+							<li>Le système demande à l’utilisateur d’entrer le montant maximum désiré.</li>
+							<li>L’utilisateur entre le montant maximum à l’aide du clavier numérique et appuie sur “Entrer”.</li>
+							<li>Le système demande à l’utilisateur de prendre le pistolet et de commencer à verser l’essence.</li>
+							<li>L’utilisateur prend le pistolet et commence à verser l’essence.</li>
+							<li>Le système affiche le montant total de la vente et le nombre de litres d’essences écoulés durant le remplissage.</li>
+							<li>Lorsque le montant entré est atteint, le système arrête le flot d’essence.</li>
+							<li>Retour à l’étape 12 du cas principal.</li>
+						</ol>
+					</div>
+
+					<div class="capsule">
+						<img src="assets/pompe.png" alt="diagramme-pompe">
+					</div>
+				</div>
+
+				<h2 class="demoTitle contenuTitle">Les types de modèles de développement</h2>
+				<div class="demoSection demo" style="display: none;">
+
+				<div class="capsule" id="modeleAgile">
+						<h3 class="titleContent">Modèle Agile</h3>
+						<p class="description">
+							Le modèle agile est basé sur une approche itérative et collaborative. Il favorise la flexibilité et l'adaptation aux changements, impliquant les parties prenantes tout au long du processus de développement pour livrer des produits de valeur rapidement.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Très flexible et adaptatif aux changements de besoin.</li>
+							<li>Livraison rapide de valeur au client.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut être difficile de gérer les attentes du client.</li>
+							<li>Nécessite une communication constante entre les équipes.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleLineaire">
+						<h3 class="titleContent">Modèle Linéaire</h3>
+						<p class="description">
+							Le modèle linéaire suit une approche séquentielle, où chaque phase de développement est réalisée dans un ordre strict. Chaque étape doit être complétée avant de passer à la suivante, rendant ce modèle rigide et peu adapté aux changements fréquents.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Simple et facile à suivre.</li>
+							<li>Axé sur la documentation.</li>
+							<li>Permet une conception bien pensée.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Purement linéaire, peu flexible.</li>
+							<li>Pas adapté aux changements fréquents.</li>
+							<li>Pas de feedback du client avant la livraison.</li>
+							<li>Vérification tardive des erreurs.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleCascade">
+						<h3 class="titleContent">Modèle en Cascade</h3>
+						<p class="description">
+							Le modèle en cascade est une extension du modèle linéaire, avec des phases distinctes comme l'analyse, la conception, l'implémentation et la validation. Chaque phase est documentée, et le passage d'une phase à l'autre se fait uniquement lorsque les livrables de la phase précédente sont validés.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Simple à suivre et bien structuré.</li>
+							<li>Facilite la documentation complète.</li>
+							<li>Adapté aux projets avec des exigences bien définies.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Très rigide, difficile d'adapter aux changements.</li>
+							<li>Le feedback du client est limité jusqu'à la fin du projet.</li>
+							<li>Les erreurs découvertes tardivement peuvent être coûteuses à corriger.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleV">
+						<h3 class="titleContent">Modèle V</h3>
+						<p class="description">
+							Le modèle V est une variante du modèle en cascade qui met l'accent sur la validation et la vérification. Pour chaque phase de développement, une phase de test correspondante est définie. Cela permet de s'assurer que les exigences sont satisfaites à chaque étape.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Accent sur la vérification et validation à chaque étape.</li>
+							<li>Les erreurs sont détectées plus tôt grâce aux phases de test associées.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Manque de flexibilité pour les changements en cours de développement.</li>
+							<li>Peut être coûteux en ressources avec de nombreuses phases de tests.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="codeEtModifie">
+						<h3 class="titleContent">Code et Modifie</h3>
+						<p class="description">
+							Ce modèle implique le développement initial d'un produit, suivi de modifications et d'améliorations basées sur les retours des utilisateurs. Cela permet d'adapter le produit aux besoins évolutifs des utilisateurs.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Flexible et adaptatif aux changements des besoins utilisateurs.</li>
+							<li>Permet une livraison rapide de versions utilisables.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut conduire à une mauvaise conception s'il n'y a pas de planification suffisante.</li>
+							<li>Difficile à maintenir à long terme.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="prototypageRapide">
+						<h3 class="titleContent">Prototypage Rapide</h3>
+						<p class="description">
+							Le prototypage rapide consiste à créer des versions simplifiées d'un produit pour recueillir des retours d'informations précoces. Cela aide à clarifier les besoins et à affiner les spécifications avant de passer à la phase de développement complète.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Aide à mieux comprendre les besoins des utilisateurs.</li>
+							<li>Réduit les risques de mauvaise compréhension des exigences.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut augmenter les coûts et délais si plusieurs prototypes sont nécessaires.</li>
+							<li>Le prototype peut parfois être perçu à tort comme le produit final.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleIncremental">
+						<h3 class="titleContent">Modèle Incrémental</h3>
+						<p class="description">
+							Le modèle incrémental divise le projet en plusieurs parties appelées "incréments". Chaque incrément est développé et testé de manière itérative, permettant une intégration continue des nouvelles fonctionnalités tout en maintenant le produit fonctionnel.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Livraison de produits utilisables à chaque itération.</li>
+							<li>Facile à intégrer de nouvelles fonctionnalités.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Nécessite une planification précise pour chaque incrément.</li>
+							<li>Peut être difficile de gérer l'intégration continue avec des systèmes complexes.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleUnifie">
+						<h3 class="titleContent">Modèle Unifié</h3>
+						<p class="description">
+							Le modèle unifié est un processus de développement itératif et incrémental qui se concentre sur les exigences et l'architecture du système. Il est organisé en phases, chacune comprenant des itérations sur différents flux de développement.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Adapté aux projets complexes nécessitant plusieurs itérations.</li>
+							<li>Facilite la gestion des exigences en évolution.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut être difficile à comprendre et à mettre en œuvre pour les équipes non expérimentées.</li>
+							<li>Demande une planification rigoureuse et une gestion continue.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="tdd">
+						<h3 class="titleContent">Développement Dirigé par les Tests (TDD)</h3>
+						<p class="description">
+							Le TDD est une méthode qui consiste à écrire des tests avant de coder. Cela permet de s'assurer que chaque fonctionnalité est testée et que le code répond aux spécifications. Cela favorise également une meilleure conception du code.
+						</p>
+						<strong>Avantages :</strong>
+						<ul>
+							<li>Permet d'assurer une meilleure qualité du code.</li>
+							<li>Réduit les risques de régressions.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut être chronophage à mettre en œuvre.</li>
+							<li>Demande une discipline stricte pour maintenir les tests à jour.</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="extremeProgramming">
+						<h3 class="titleContent">Extreme Programming (XP)</h3>
+						<p class="description">
+							XP est une approche agile qui met l'accent sur la communication, la rétroaction rapide et l'amélioration continue. Elle utilise des pratiques telles que le développement par paires, la programmation itérative et la validation fréquente pour améliorer la qualité du produit.
+						</p>
+						<ul>
+							<li>Amélioration continue grâce aux retours fréquents.</li>
+							<li>Flexibilité et adaptation aux changements rapides.</li>
+							<li>Encouragement à la qualité du code via des pratiques comme le développement par paires.</li>
+						</ul>
+						<strong>Inconvénients :</strong>
+						<ul>
+							<li>Peut nécessiter une forte implication des clients.</li>
+							<li>Difficulté à maintenir la cadence avec des livraisons fréquentes.</li>
+							<li>Demande une discipline rigoureuse pour suivre toutes les pratiques XP.</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- <h2 class="mainDemoTitle">Section des démos</h2> -->
+
+				<h2 class="demoTitle">Démonstration 1 - Modèles de développement</h2>
+				<div class="demoSection demoGrid" style="display: none;">
+					
+					<div class="capsule" id="gitCapsule">
+						<h3 class="titleContent">Git: opérations de base</h3>
+						<p class="description">
+							<ul>
+                                <li><strong>Clone:</strong> Télécharger un projet et aussi créer un dépôt local.</li>
+                                <li><strong>Fetch: </strong>Vérifier si quelque chose a changé dans le dépôt.</li>
+                                <li><strong>Pull: </strong>Mettre à jour les changements du serveur vers le dépôt local.</li>
+                                <li><strong>Add: </strong> Approuver les changements avant qu’ils soient soumis (commit).</li>
+                                <li><strong>Commit: </strong>Soumettre les changements dans le dépôt local.</li>
+                                <li><strong>Push: </strong>Soumettre les changements locaux vers le serveur.</li>
+                                <li><strong>Checkout: </strong>Change de branches ou annule les changements apportés.</li>
+                            </ul>
+						</p>
+					</div>
+                    
+					<div class="capsule" id="choixModeleDev">
+						<h2>Quels sont les facteurs qui influencent le choix du modèle de développement ?</h2>
+						<p class="description">Le modèle de développement est principalement dirigé par la distance entre les acteurs (communication) et les contraintes sur les ressources. Ex: si la communication est difficile, le projet suivra un modèle linéaire ou incrémental; sinon il sera itératif.</p>
+					</div>
+
+					<div class="capsule" id="methodesAgiles">
+						<h2>Les méthodes agiles utilisent un style de développement itératif et incrémental</h2>
+						<p class="description">Les méthodes agiles se caractérisent par un rapprochement de tous les participants du projet (développeur, gestionnaire, client, utilisateurs…). Elles sont orientées résultats, favorisant la livraison fréquente et mesurable. Ces caractéristiques traduisent le style de développement itératif et incrémental.</p>
+					</div>
+
+					<div class="capsule" id="tddAvantage">
+						<h2>Décrivez le développement dirigé par les tests. Quel avantage offre-t-il ?</h2>
+						<p class="description">Le développement dirigé par les tests (TDD) est une technique agile où le code est implémenté suivant des tests utilisés comme spécifications. Le flux de travail (cyclique) consiste à écrire des tests (échouant initialement), puis écrire le code source correspondant (passe) et remanier le code pour en améliorer sa qualité.</p>
+					</div>
+
+					<div class="capsule" id="processusUnifieFlux">
+						<h2>Dans le processus unifié, à chaque phase, nous travaillons sur un flux à la fois</h2>
+						<p class="description"> <strong>Non!</strong> Le processus unifié découpe un projet en plusieurs phases au travers desquelles on itère sur plusieurs flux de développement (à différent degré).</p>
+					</div>
+
+					<div class="capsule" id="risquesBesoinNonFonctionnels">
+						<h2>Risques et besoins non-fonctionnels</h2>
+						<p class="description">
+							<strong>Ligne de but :</strong> Dispositif de surveillance de la ligne de but.
+							<br><strong>Risques :</strong> 
+							1. Mauvaise lecture, 
+							2. Sensibilité aux intempéries, 
+							3. Perturbation du jeu.
+							<br><strong>Besoins :</strong> Fiabilité (99.999%), Performance (&lt; 0.1s), Respect des standards.
+
+							<br><br><strong>Page Festival d’été :</strong> Infos sur le festival et horaires.
+							<br><strong>Risques :</strong> 
+							1. Horaires obsolètes, 
+							2. Informations erronées, 
+							3. Indisponibilité du site.
+							<br><strong>Besoins :</strong> Fiabilité (99.99%), Accessibilité (mobile/PC), Support infos externe.
+
+							<br><br><strong>Plateforme iSteam :</strong> Plateforme de jeux comme Steam.
+							<br><strong>Risques :</strong> 
+							1. Accès inapproprié aux jeux (âge limite), 
+							2. Malware, 
+							3. Poursuites judiciaires.
+							<br><strong>Besoins :</strong> Portabilité (Windows, Mac, Linux), Sécurité des données, Économie d’espace.
+						</p>
+					</div>
+
+					<div class="capsule" id="projetsDeveloppement">
+						<h2>Considérez les projets de développement suivants :</h2>
+						<p class="description">
+							a) Développement d’un compilateur pour un langage connu (ex. C, Pascal) pour une nouvelle machine.<br>
+							b) Développement d’une application pour les activités administratives d’un cabinet de médecin.<br><br>
+							<strong>Le projet le plus adapté à un développement en cascade est :</strong> a) Développement d’un compilateur.<br>
+							<strong>Justification :</strong> Le processus de compilation est séquentiel et bien défini, avec des exigences claires et stables. En revanche, l'application administrative peut nécessiter des ajustements fréquents, ce qui rend un modèle agile plus approprié.
+						</p>
+					</div>
+
+					<div class="capsule" id="prototypes">
+						<h2>Compréhension du modèle par prototypage</h2>
+						<p class="description">
+							<strong>Question :</strong> « Je ne comprends pas pourquoi il existe des prototypes jetables et d’autres évolutifs. Ne serait-il pas plus avantageux de toujours réutiliser les prototypes dans les versions subséquentes ? »
+							<br><br>
+							<strong>Réponse :</strong> 
+							Le prototype jetable permet d’élucider les besoins moins bien compris et d’écarter les solutions non désirables. Il est utilisé pour recueillir des retours d'information et affiner la compréhension des besoins des utilisateurs. Le prototype évolutif vient après les itérations sur le prototype jetable. Ce dernier est utilisé pour raffiner un design en vue d’obtenir une version finale implémentée. Ainsi, chaque type de prototype a son rôle spécifique dans le processus de développement.
+						</p>
+					</div>
+
+				</div>
+
+				<h2 class="demoTitle">Démonstration 2 - Exigences: CUs + scénarios</h2>
+				<div class="demoSection demo" style="display: none;">
+					<div class="capsule" id="q1">
+						<h3 class="titleContent">Q1 : Un client vous dit vouloir utiliser des logiciels open source. Est-ce un besoin fonctionnel ? Pourquoi ?</h3>
+						<p class="description"> <strong>Non!</strong>
+							La contrainte d’utiliser des logiciels open source ne décrit pas une fonctionnalité propre au logiciel, mais plutôt une caractéristique désirable pour l’implémentation. Donc elle correspond à un besoin non fonctionnel.
+						</p>
+					</div>
+
+					<div class="capsule" id="q2">
+						<h3 class="titleContent">Q2 : Quelle est la différence entre acteur principal et acteur secondaire ?</h3>
+						<p class="description">
+							La réalisation d’un cas d’utilisation nécessite parfois l’intervention de plusieurs acteurs. Cependant, ils ne jouent pas tous le même rôle dans leurs interactions avec le système. <br>
+							<strong>Acteur principal :</strong> Initie le cas d’utilisation ; bénéficiaire principal/direct du cas d’utilisation. <br>
+							<strong>Acteur secondaire :</strong> Contribue à la réalisation du cas d’utilisation.
+						</p>
+					</div>
+
+					<div class="capsule" id="q3">
+						<h3 class="titleContent">Q3 : Vrai ou Faux, Durant l’analyse, nous pouvons découvrir de nouveaux besoins.</h3>
+						<p class="description"> <strong>Oui!</strong>
+							Le client exprime souvent ces besoins vis-à-vis du problème immédiat auquel il fait face ou avec un exemple de solution qu’il a en tête, résultant sur des besoins incomplets ou incohérents. Durant l’analyse des besoins et l’élaboration des contraintes du projet, nous rencontrons habituellement des besoins additionnels ou les besoins initiaux sont raffinés.
+						</p>
+					</div>
+
+					<div class="capsule" id="q4">
+						<h3 class="titleContent">Q4 : Vrai ou Faux, Un diagramme de cas d’utilisation constitue un modèle dynamique.</h3>
+						<p class="description"> <strong>Non!</strong>
+							Un diagramme de cas d’utilisation permet d’identifier et décrire les fonctionnalités d’un logiciel qui sont significatives pour ses utilisateurs. Il constitue donc un modèle fonctionnel. Cependant, il ne présente aucune forme d’ordonnancement, de séquence ou de transformation pouvant traduire un comportement. Donc le diagramme de cas d’utilisation n’est pas dynamique.
+						</p>
+					</div>
+
+					<div class="capsule" id="q5">
+						<h3 class="titleContent">Q5 : Quel est le problème avec ce diagramme?</h3>
+						<img src="assets/q5.webp" alt="q5" width="600px">
+						<p class="description"><strong>Réponse : </strong></p> 
+						<p class="description">
+							Les cas d’utilisation sont trop vagues et regroupe plusieurs
+							actions => Éviter le verbe Gérer. Il faudrait les décomposer en cas
+							plus spécifique. De plus, les acteurs Gestionnaire et Commis
+							pourraient être généralisés dans le premier cas, à moins de
+							chacun jouer un rôle différent dans le cas.
+						</p>
+					</div>
+
+					<div class="capsule" id="q6">
+						<h3 class="titleContent">Q6 : Quel est le problème avec ce diagramme?</h3>
+						<img src="assets/q6.webp" alt="q6" width="400px">
+						<p class="description"><strong>Réponse : </strong></p> 
+						<p class="description">
+							<ol>
+								<li>La relation include nécessite au minimum 2 CUs utilisant un
+								troisième. Donc, sans autre cas, il faudrait jumeler Ouvrir
+								un dossier et Confirmer statut de résidence.
+								</li>
+								<li>
+								Le cas Gérer dossier du patient est trop général. Il faudrait
+								le décomposer en cas plus spécifique comme Modifier
+								dossier du patient et Archiver dossier du patient.
+								</li>
+								<li>
+								Certains cas t.q. Gérer dossier du patient nécessitent
+								probablement l’intervention du patient comme acteur
+								secondaire. Il faudrait donc l’ajouter et l’associer à ces cas.
+								</li>
+							</ol>
+						</p>
+					</div>
+
+
+				</div>
+
+				<h2 class="demoTitle">Démonstration 3 - Analyse: Diagramme d'activités + ECB</h2>
+				<div class="demoSection demo" style="display: none;">
+
+					<div class="capsule" id="scenarioPrePostconditions">
+						<h3 class="titleContent">Vrai ou Faux : Un scénario présente toujours des préconditions et des postconditions.</h3>
+						<p class="description"> <strong>Faux!</strong>
+							Un scénario présente des préconditions ou postconditions seulement s’il est nécessaire de garantir l’état du système ou de l’environnement avant ou après l’exécution du scénario principal.
+						</p>
+					</div>
+
+					<div class="capsule" id="differenceGitGitHub">
+						<h3 class="titleContent">Quelle est la différence entre Git et GitHub?</h3>
+						<p class="description">
+							Git est un système de contrôle de version décentralisé, où tout le monde communique avec le dépôt (repository) de son choix. GitHub est une plateforme offrant des services d’hébergement de fichiers dont le versionnement est fait avec Git.
+						</p>
+						<strong>Alternatives :</strong>
+						<ul>
+							<li><strong>Git:</strong> SVN (centralisé)</li>
+							<li><strong>GitHub:</strong> Bitbucket, Gitlab</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="modeleECB">
+						<h3 class="titleContent">Vrai ou Faux : Dans le modèle de classe ECB, une classe entité peut communiquer avec une classe d’interface.</h3>
+						<p class="description">
+							Dans un modèle ECB, une classe d’interface permet de recevoir une entrée ou fournir une sortie, et une classe entité permet de préserver des données structurées. Cependant, une entrée subissant toujours (ou presque) un traitement (classe de contrôle), une classe entité ne devrait pas communiquer directement avec une classe d’interface.
+						</p>
+					</div>
+
+					<div class="capsule" id="troisModelesAnalyse">
+						<h3 class="titleContent">Distinguez 3 modèles d’analyse en faisant ressortir l’utilité/le but de chacun.</h3>
+						<p class="description">
+							1. <strong>Modèle fonctionnel:</strong> décrire les fonctions du système et ses interactions avec l’environnement externe.<br>
+							2. <strong>Modèle dynamique:</strong> décrire le comportement du système, le séquencement d’actions.<br>
+							3. <strong>Modèle d’objet:</strong> décrire les concepts/entités encapsulant le comportement et les propriétés du système.
+						</p>
+					</div>
+
+					<div class="capsule" id="">
+						<h3 class="titleContent"></h3>
+						<img src="assets/q5-diagramme.webp" alt="diagramme" width="400px">
+						<p class="description">Laquelle des affirmations suivantes est vraie?</p>
+						<ul>
+							<li style="color:green;"><strong>a)</strong> Il est possible de boucler à l’infini.</li>
+							<li><strong>b)</strong> Le flux produit toujours un dossier de candidature.</li>
+							<li><strong>c)</strong> Un dossier de candidature peut présenter des inscriptions erronées.</li>
+							<li><strong>d)</strong> L’analyse du profil se termine toujours avant l’ajout de l’inscription au dossier.</li>
+							<li style="color:green;"><strong>e)</strong> L’analyse du profil se déroule en même temps que la création du dossier de candidature.</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<h2 class="demoTitle">Démonstration 4 - Analyse &rArr; Conception</h2>
+				<div class="demoSection demo" style="display: none;">
+					<div class="capsule" id="q1.4">
+						<h3 class="titleContent">Q1: Quelles sont les caractéristiques d’une bonne conception?</h3>
+						<p class="description">
+							Une bonne conception est une conception flexible et modulaire favorisant la réutilisation et l’harmonisation des composants, obtenue par un faible couplage (degré d’interaction entre les modules) et une forte cohésion (degré d’interaction au sein du module).
+						</p>
+					</div>
+
+					<div class="capsule" id="q2.4">
+						<h3 class="titleContent">Q2: UML est un langage de programmation. Justifiez votre réponse.</h3>
+						<p class="description">
+							UML est un langage de modélisation composé de 14 types de diagrammes (structurels et comportementaux). Il peut être couplé à des techniques de génération de code pour créer des programmes (exécutable).
+						</p>
+					</div>
+
+					<div class="capsule" id="q3.4">
+						<h3 class="titleContent">Q3: Nommez 3 commandes/opérations Git. Décrivez-les brièvement.</h3>
+						<p class="description">
+							<ul>
+								<li><strong>Clone:</strong> Télécharger un projet et aussi créer un dépôt local.</li>
+								<li><strong>Pull:</strong> Mettre à jour les changements du serveur vers le dépôt local.</li>
+								<li><strong>Add (Stage):</strong> Approuver les changements avant qu’ils soient soumis (commit).</li>
+								<li><strong>Commit:</strong> Soumettre les changements dans le dépôt local.</li>
+								<li><strong>Push:</strong> Soumettre les changements locaux vers le serveur.</li>
+								<li><strong>Checkout:</strong> Change de branches ou annule les changements apportés.</li>
+							</ul>
+						</p>
+					</div>
+
+					<div class="capsule" id="q4.4">
+						<h3 class="titleContent">Q4: Dans la décomposition d’un système, à quoi correspond la partie publique et la partie privée?</h3>
+						<p class="description">
+							La partie publique répond à la question <em>Quoi offrir?</em> Elle regroupe l’ensemble des ressources accessibles aux autres modules (clients). Elle forme l’interface du système. La partie privée répond à la question <em>Comment le réaliser?</em> Dedans, on retrouve la structure interne du système (module) et les détails d’implémentation.
+						</p>
+					</div>
+
+					<div class="capsule" id="q5.4">
+						<h3 class="titleContent">Q5: Je développe une application mobile capable de localiser la poubelle la plus proche. Nommez 3 besoins fonctionnels et 3 besoins non-fonctionnels pour cette application.</h3>
+						<h4>Besoins fonctionnels</h4>
+						<ul>
+							<li>Trouver la position de l’utilisateur (location)</li>
+							<li>Trouver les poubelles dans un rayon donné (25m, 50m, 100m)</li>
+							<li>Filtrer les poubelles par type (plastique, déchet) et capacité</li>
+							<li>Vérifier la capacité des poubelles (service de ramassage)</li>
+							<li>Produire un rapport sur l’usage des poubelles (efficacité)</li>
+						</ul>
+						<h4>Besoins non-fonctionnels</h4>
+						<ul>
+							<li>Fiabilité: 90% des poubelles suggérées doivent être accessibles</li>
+							<li>Utilisabilité: Facile à utiliser et configurer pour tous les âges</li>
+							<li>Compatibilité: Compatible avec les autres systèmes de la ville.</li>
+							<li>Portabilité: L’application est supportée par les systèmes d’exploitation populaires (ex: Android, iOS)</li>
+							<li>Performance: Délai de réponse de chaque action < 0.1s</li>
+						</ul>
+					</div>
+
+					<div class="capsule" id="q6.4">
+						<img src="assets/q6.4.webp" alt="q6" width="700px">
+						<img src="assets/q6.4rep.webp" alt="q6-reponse" width="700px">
+					</div>
+				</div>
+
+			</section>
+
+			<footer>
+			<p class="description note">Le site est en constant développement, n'hésitez pas à me contacter pour demander des ajustements ou ajouts.</p>
+			<p>Par <a href="https://github.com/StarPlatinumSan"><span>Andrei Bituleanu</span></a></p>
+			</footer>
+		</main>
+	</body>
+</html>
