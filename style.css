@@ -60,6 +60,11 @@ a p:hover {
 
 a {
 	text-decoration: none;
+	color: orange;
+}
+
+a:hover {
+	color: darkorange;
 }
 
 a:active {
