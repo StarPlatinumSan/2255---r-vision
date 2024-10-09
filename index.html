@@ -294,67 +294,6 @@
 					</div>
 				</div>
 
-				<h2 class="demoTitle contenuTitle">Les différents modèles d'analyse</h2>
-				<div class="demoSection demo" style="display: none;">
-					<div class="capsule" id="fonctionnel">
-						<h3 class="titleContent">Le Modèle Fonctionnel</h3>
-						<img src="assets/fonctionnel.webp" alt="fonctionnel" width="400px">
-						<p class="description">Le modèle fonctionnel repose sur l'évaluation de fonctions pures sans effet de bord. Les programmes sont construits en appliquant et en composant des fonctions.</p>
-						<ul>
-							<li><strong>Fonctions Pures :</strong> Ces fonctions n'ont aucun effet de bord et leur sortie dépend uniquement de leurs entrées. Elles facilitent les tests et le débogage.</li>
-							<li><strong>Immutabilité :</strong> L'état ne change jamais. Tout changement crée une nouvelle version des données.</li>
-							<li><strong>Fonctions de Première Classe :</strong> Les fonctions sont traitées comme des valeurs et peuvent être passées comme arguments, retournées et stockées dans des variables.</li>
-						</ul>
-						<p class="description" style="color: red;">Les fonctions dans ce modèle sont comme des boîtes noires : elles reçoivent des données, effectuent des calculs et retournent des résultats sans modifier les données d'origine.</p>
-						<p class="description">Ce modèle met l'accent sur la composition des fonctions, rendant le code plus modulaire, maintenable et facile à tester. Il est particulièrement adapté pour les applications nécessitant un traitement concurrentiel.</p>
-						<p class="description">Les interactions se déroulent de la manière suivante :</p>
-						<ul>
-							<li>Une <strong>fonction</strong> prend des données en entrée, applique une logique, et retourne un résultat sans modifier l'état global du programme.</li>
-							<li>Les fonctions peuvent être composées les unes avec les autres pour former des transformations de données complexes.</li>
-						</ul>
-						<p class="description">Ce modèle favorise un code prévisible, car il élimine les effets secondaires, simplifiant ainsi la gestion de la logique métier et des tests unitaires.</p>
-					</div>
-
-					<div class="capsule" id="dynamique">
-						<h3 class="titleContent">Le Modèle Dynamique</h3>
-						<img src="assets/dynamique.webp" alt="dynamique" width="400px">
-						<p class="description">Le modèle dynamique est basé sur les modifications en temps réel de l'état et des interactions des composants du système. Il s'adapte aux entrées et événements au fur et à mesure de leur survenue.</p>
-						<ul>
-							<li><strong>Réactivité :</strong> Le système répond instantanément aux changements d'état ou aux événements externes.</li>
-							<li><strong>Événements :</strong> Les interactions du système sont déclenchées par des événements, qu'ils soient utilisateurs ou systèmes.</li>
-							<li><strong>Flexibilité :</strong> Ce modèle permet une adaptation continue et la modification des comportements à la volée, en fonction des besoins du système.</li>
-						</ul>
-						<p class="description" style="color: red;">Les composants réagissent en chaîne, créant des mises à jour dynamiques et en temps réel. Chaque événement ou changement dans le système peut déclencher une cascade d'actions.</p>
-						<p class="description">Le modèle dynamique est particulièrement utilisé dans les environnements où les changements sont fréquents et rapides, comme les interfaces utilisateur réactives ou les systèmes de gestion d'événements.</p>
-						<p class="description">Les interactions se font comme suit :</p>
-						<ul>
-							<li>Les <strong>composants</strong> du système réagissent aux <strong>événements</strong> et interagissent entre eux pour mettre à jour l'état du système en temps réel.</li>
-							<li>Le système est continuellement mis à jour en fonction des actions des utilisateurs ou des événements externes.</li>
-						</ul>
-						<p class="description">Ce modèle encourage une architecture adaptative, permettant une réponse rapide aux changements, idéal pour des applications interactives ou à forte variabilité.</p>
-					</div>
-
-					<div class="capsule" id="objet">
-						<h3 class="titleContent">Le Modèle Objet</h3>
-						<img src="assets/objet.webp" alt="objet" width="400px">
-						<p class="description">Le modèle objet est centré sur la notion d’objets, qui encapsulent à la fois les données et les comportements. Chaque objet est une instance d’une classe, représentant un concept ou un élément du monde réel.</p>
-						<ul>
-							<li><strong>Encapsulation :</strong> Les données et les méthodes sont regroupées dans des objets, limitant l'accès direct aux données pour renforcer la sécurité et la modularité.</li>
-							<li><strong>Héritage :</strong> Les classes peuvent hériter des comportements et des attributs d’autres classes, favorisant la réutilisation du code.</li>
-							<li><strong>Polymorphisme :</strong> Les objets peuvent prendre différentes formes, et les méthodes peuvent être surchargées pour un comportement différent selon le contexte.</li>
-						</ul>
-						<p class="description" style="color: red;">Les objets sont les blocs de construction du système, chacun ayant des responsabilités et des interactions bien définies, facilitant la gestion du comportement global du programme.</p>
-						<p class="description">Le modèle orienté objet est largement utilisé pour des projets de grande envergure, où la modularité, la réutilisation du code et la maintenance à long terme sont essentielles.</p>
-						<p class="description">Les interactions entre les objets sont les suivantes :</p>
-						<ul>
-							<li>Un <strong>objet</strong> envoie des messages à un autre <strong>objet</strong> pour demander des actions ou des informations, selon les méthodes disponibles.</li>
-							<li>Les objets interagissent via des méthodes et modifient l'état d'autres objets par des messages.</li>
-						</ul>
-						<p class="description">Ce modèle favorise l'organisation claire du code et facilite la maintenance, la compréhension et la réutilisation dans des projets à long terme.</p>
-					</div>
-
-				</div>
-
 				<h2 class="demoTitle contenuTitle">Les types de modèles de développement</h2>
 				<div class="demoSection demo" style="display: none;">
 
@@ -534,6 +473,69 @@
 							<li>Demande une discipline rigoureuse pour suivre toutes les pratiques XP.</li>
 						</ul>
 					</div>
+
+				</div>
+
+				<h2 class="demoTitle contenuTitle">Les différents modèles d'analyse</h2>
+				<div class="demoSection demo" style="display: none;">
+					<div class="capsule" id="fonctionnel">
+						<h3 class="titleContent">Le Modèle Fonctionnel</h3>
+						<img src="assets/fonctionnel.webp" alt="fonctionnel" width="400px">
+						<p class="description">Le modèle fonctionnel repose sur l'évaluation de fonctions pures sans effet de bord. Les programmes sont construits en appliquant et en composant des fonctions.</p>
+						<ul>
+							<li><strong>Fonctions Pures :</strong> Ces fonctions n'ont aucun effet de bord et leur sortie dépend uniquement de leurs entrées. Elles facilitent les tests et le débogage.</li>
+							<li><strong>Immutabilité :</strong> L'état ne change jamais. Tout changement crée une nouvelle version des données.</li>
+							<li><strong>Fonctions de Première Classe :</strong> Les fonctions sont traitées comme des valeurs et peuvent être passées comme arguments, retournées et stockées dans des variables.</li>
+						</ul>
+						<p class="description" style="color: red;">Les fonctions dans ce modèle sont comme des boîtes noires : elles reçoivent des données, effectuent des calculs et retournent des résultats sans modifier les données d'origine.</p>
+						<p class="description">Ce modèle met l'accent sur la composition des fonctions, rendant le code plus modulaire, maintenable et facile à tester. Il est particulièrement adapté pour les applications nécessitant un traitement concurrentiel.</p>
+						<p class="description">Les interactions se déroulent de la manière suivante :</p>
+						<ul>
+							<li>Une <strong>fonction</strong> prend des données en entrée, applique une logique, et retourne un résultat sans modifier l'état global du programme.</li>
+							<li>Les fonctions peuvent être composées les unes avec les autres pour former des transformations de données complexes.</li>
+						</ul>
+						<p class="description">Ce modèle favorise un code prévisible, car il élimine les effets secondaires, simplifiant ainsi la gestion de la logique métier et des tests unitaires.</p>
+					</div>
+
+					<div class="capsule" id="dynamique">
+						<h3 class="titleContent">Le Modèle Dynamique</h3>
+						<img src="assets/dynamique.webp" alt="dynamique" width="400px">
+						<p class="description">Le modèle dynamique est basé sur les modifications en temps réel de l'état et des interactions des composants du système. Il s'adapte aux entrées et événements au fur et à mesure de leur survenue.</p>
+						<ul>
+							<li><strong>Réactivité :</strong> Le système répond instantanément aux changements d'état ou aux événements externes.</li>
+							<li><strong>Événements :</strong> Les interactions du système sont déclenchées par des événements, qu'ils soient utilisateurs ou systèmes.</li>
+							<li><strong>Flexibilité :</strong> Ce modèle permet une adaptation continue et la modification des comportements à la volée, en fonction des besoins du système.</li>
+						</ul>
+						<p class="description" style="color: red;">Les composants réagissent en chaîne, créant des mises à jour dynamiques et en temps réel. Chaque événement ou changement dans le système peut déclencher une cascade d'actions.</p>
+						<p class="description">Le modèle dynamique est particulièrement utilisé dans les environnements où les changements sont fréquents et rapides, comme les interfaces utilisateur réactives ou les systèmes de gestion d'événements.</p>
+						<p class="description">Les interactions se font comme suit :</p>
+						<ul>
+							<li>Les <strong>composants</strong> du système réagissent aux <strong>événements</strong> et interagissent entre eux pour mettre à jour l'état du système en temps réel.</li>
+							<li>Le système est continuellement mis à jour en fonction des actions des utilisateurs ou des événements externes.</li>
+						</ul>
+						<p class="description">Ce modèle encourage une architecture adaptative, permettant une réponse rapide aux changements, idéal pour des applications interactives ou à forte variabilité.</p>
+					</div>
+
+					<div class="capsule" id="objet">
+						<h3 class="titleContent">Le Modèle Objet</h3>
+						<img src="assets/objet.webp" alt="objet" width="400px">
+						<p class="description">Le modèle objet est centré sur la notion d’objets, qui encapsulent à la fois les données et les comportements. Chaque objet est une instance d’une classe, représentant un concept ou un élément du monde réel.</p>
+						<ul>
+							<li><strong>Encapsulation :</strong> Les données et les méthodes sont regroupées dans des objets, limitant l'accès direct aux données pour renforcer la sécurité et la modularité.</li>
+							<li><strong>Héritage :</strong> Les classes peuvent hériter des comportements et des attributs d’autres classes, favorisant la réutilisation du code.</li>
+							<li><strong>Polymorphisme :</strong> Les objets peuvent prendre différentes formes, et les méthodes peuvent être surchargées pour un comportement différent selon le contexte.</li>
+						</ul>
+						<p class="description" style="color: red;">Les objets sont les blocs de construction du système, chacun ayant des responsabilités et des interactions bien définies, facilitant la gestion du comportement global du programme.</p>
+						<p class="description">Le modèle orienté objet est largement utilisé pour des projets de grande envergure, où la modularité, la réutilisation du code et la maintenance à long terme sont essentielles.</p>
+						<p class="description">Les interactions entre les objets sont les suivantes :</p>
+						<ul>
+							<li>Un <strong>objet</strong> envoie des messages à un autre <strong>objet</strong> pour demander des actions ou des informations, selon les méthodes disponibles.</li>
+							<li>Les objets interagissent via des méthodes et modifient l'état d'autres objets par des messages.</li>
+						</ul>
+						<p class="description">Il existe les objets <strong>interface</strong>, les objets <strong>contrôle</strong> et les objets <strong>entité</strong>, les objets de contrôle sont les seuls qui communiquent avec les deux autres.</p>
+						<p class="description">Ce modèle favorise l'organisation claire du code et facilite la maintenance, la compréhension et la réutilisation dans des projets à long terme.</p>
+					</div>
+
 
 				</div>
 
