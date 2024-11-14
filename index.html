@@ -60,13 +60,52 @@
 
 				<h2 class="demoTitle contenuTitle">Quelques aides-mémoires</h2>
 				<div class="demoSection demo" style="display: none;">
-					<div class="capsule" id="flux">
-						<h3 class="titleContent">Flux de travail</h3>
-						<img src="assets/flux.webp" alt="flux">
+
+					<div class="capsule">
+						<h3 class="titleContent">Classes abstraites vs interfaces</h3>
+						
+						<div class="grid-table">
+							<!-- Header Row -->
+							<div class="header-criteria">Interface vs Classe Abstraite</div>
+							<div class="headerGrid">Critère</div>
+							<div class="headerGrid">Interface</div>
+							<div class="headerGrid">Classe Abstraite</div>
+					
+							<!-- Row 1 -->
+							<div>Héritage/Implémentation</div>
+							<div>Une classe peut implémenter plusieurs interfaces.</div>
+							<div>Une classe ne peut hériter que d'une seule classe abstraite.</div>
+					
+							<!-- Row 2 -->
+							<div>Contenu</div>
+							<div>Contient uniquement des méthodes abstraites ou des méthodes par défaut/statique (Java 8+).</div>
+							<div>Peut contenir des méthodes abstraites **et** concrètes.</div>
+					
+							<!-- Row 3 -->
+							<div>Champs</div>
+							<div>Contient uniquement des constantes (`public static final`).</div>
+							<div>Peut contenir des variables d'instance (avec état).</div>
+					
+							<!-- Row 4 -->
+							<div>Utilisation</div>
+							<div>Pour définir un **contrat** ou un comportement commun sans relation entre classes.</div>
+							<div>Pour fournir une **base commune** avec comportement partagé pour les sous-classes.</div>
+					
+							<!-- Row 5 -->
+							<div>Constructeurs</div>
+							<div>Pas de constructeur.</div>
+							<div>Peut avoir un constructeur pour initialiser les champs.</div>
+					
+							<!-- Row 6 -->
+							<div>Exemples d'usage</div>
+							<div>Pour des fonctionnalités transversales (ex. `Comparable`, `Runnable`).</div>
+							<div>Pour un modèle de base avec des comportements par défaut (ex. `Animal`, `Shape`).</div>
+						</div>
+
 					</div>
 
 					<div class="capsule" id="fluxSuite">
-						<h3 class="titleContent">Flux de travail, suite ...</h3>
+						<h3 class="titleContent">Flux de travail</h3>
 						<ul>
 						<li><strong>Exigences :</strong>
 							<ul>
@@ -292,6 +331,92 @@
 					<div class="capsule">
 						<img src="assets/pompe.png" alt="diagramme-pompe">
 					</div>
+				</div>
+
+				<h2 class="demoTitle contenuTitle">Matière du cours</h2>
+				<div class="demoSection demo" style="display: none;">
+
+					
+
+					<div class="capsule" id="architecture-intro">
+						<h3 class="titleContent">Introduction à l'architecture logicielle</h3>
+						<p class="description">
+							Stratégie : L'architecture est guidée par les exigences non-fonctionnelles (portabilité, fiabilité, robustesse, sécurité, etc.).<br>
+							Conception architecturale : Vue haut niveau, composants principaux, leurs propriétés et collaborations.<br>
+							Inclut la conception des interfaces utilisateur, bases de données, points de contrôle, réseaux et allocation des composants aux ressources matérielles.
+						</p>
+					</div>
+					
+					<div class="capsule" id="conception-modulaire-vs-monolithique">
+						<h3 class="titleContent">Conception modulaire vs monolithique</h3>
+						<p class="description">
+							Monolithique : Difficile à comprendre, localiser les fautes, étendre, améliorer ou réutiliser.<br>
+							Modulaire : Faible couplage, forte cohésion. Avantages : réutilisation, évolutivité, facilité de modification.
+						</p>
+					</div>
+					
+					<div class="capsule" id="bonne-conception">
+						<h3 class="titleContent">Bonne conception</h3>
+						<p class="description">
+							Faible couplage et forte cohésion.<br>
+							Réutilisation : Facilite la création de nouveaux logiciels (extensions, modifications, corrections).<br>
+							Évolutive : Minimiser l’effort pour apporter des modifications post-développement.
+						</p>
+					</div>
+					
+					<div class="capsule" id="mauvaise-conception">
+						<h3 class="titleContent">Mauvaise conception</h3>
+						<p class="description">
+							Rigidité : Chaque changement impacte trop de parties du système.<br>
+							Fragilité : Modifications entraînent des dysfonctionnements inattendus.<br>
+							Immobilité : Difficile de réutiliser des composants dans d’autres applications.
+						</p>
+					</div>
+					
+					<div class="capsule" id="reutilisation-logicielle">
+						<h3 class="titleContent">Réutilisation logicielle</h3>
+						<p class="description">
+							Opportuniste : Identification de parties réutilisables durant le développement.<br>
+							Systématique : Construction intentionnelle de composants réutilisables (design orienté composant).<br>
+							Avantages : Réduction des coûts, accélération du lancement des produits.<br>
+							Obstacles : Syndrome du "pas inventé ici", crainte des défauts, problèmes légaux, manque d'ouverture des composants commerciaux.
+						</p>
+					</div>
+					
+					<div class="capsule" id="modele-c4">
+						<h3 class="titleContent">Modélisation de l'architecture : Modèle C4</h3>
+						<p class="description">
+							Quatre niveaux d'abstraction :<br>
+							1. Système : Vue globale, limites externes, interactions principales.<br>
+							2. Conteneurs : Applications backend/frontend, API, bases de données, etc.<br>
+							3. Composants : Modules/bibliothèques au sein d’un conteneur.<br>
+							4. Code : Détails des composants (optionnel).
+						</p>
+					</div>
+					
+					<div class="capsule" id="styles-architecture">
+						<h3 class="titleContent">Styles d’architecture courants</h3>
+						<p class="description">
+							En couche : Séparation stricte des responsabilités entre présentation, logique métier et données.<br>
+							3-Tier : Variante de l'architecture en couche, adaptée aux applications web et d’entreprise.<br>
+							Microservices : Services indépendants pour flexibilité, tolérance aux pannes, déploiement/mise à jour indépendants.<br>
+							Client-Serveur : Client envoie des requêtes, serveur traite/répond.<br>
+							Peer-to-Peer : Communication directe entre nœuds sans serveur central.<br>
+							Pipe-et-filtre : Données transformées en séquence via des filtres.<br>
+							Modèle-Vue-Contrôleur (MVC) : Modèle (état), Vue (interface), Contrôleur (logique utilisateur).
+						</p>
+					</div>
+					
+					<div class="capsule" id="importance-architecture">
+						<h3 class="titleContent">Importance de l’architecture</h3>
+						<p class="description">
+							Les décisions architecturales ont un impact durable :<br>
+							Une mauvaise architecture est difficile à corriger après implémentation.<br>
+							Nécessite une reconception immédiate en cas de problème.
+						</p>
+					</div>
+					
+
 				</div>
 
 				<h2 class="demoTitle contenuTitle">Les types de modèles de développement</h2>
@@ -540,6 +665,7 @@
 				</div>
 
 				<!-- <h2 class="mainDemoTitle">Section des démos</h2> -->
+				 
 
 				<h2 class="demoTitle">Démonstration 1 - Modèles de développement</h2>
 				<div class="demoSection demoGrid" style="display: none;">
@@ -814,6 +940,8 @@
 						<img src="assets/q6.4rep.webp" alt="q6-reponse" width="700px">
 					</div>
 				</div>
+
+				
 
 			</section>
 
